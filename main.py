@@ -445,17 +445,19 @@ def translate_menu():
         input("Press Enter to return to the main menu...")
 
 def translate_to_s0rish():
-    user_input = input("Enter text to translate to S0rish: ")
-    translated_result = s0rtranslator(user_input, to_s0rish=True)
-    print("Translated to S0rish:", translated_result)
     while True:
+        user_input = input("Enter text to translate to S0rish: ")
+        translated_result = s0rtranslator(user_input, to_s0rish=True)
+        print("Translated to S0rish:", translated_result)
+        
         translate_to_s0rish_again = input("Do you want to translate again? (Y/N): ").upper()
-        if translate_to_s0rish_again in ('Y', 'N'):
-            TRNSLTR()
+        if translate_to_s0rish_again == 'Y':
+           translate_menu()
+        elif translate_to_s0rish_again == 'N':
+            mainmenu()  # Go to the main menu
         else:
             print("Invalid input. Please enter 'Y' or 'N'")
-        if translate_to_s0rish_again == 'N':
-            break
+            translate_to_s0rish_again()
 
 def translate_to_english():
     while True:
@@ -463,16 +465,14 @@ def translate_to_english():
         translated_result = s0rtranslator(user_input, to_s0rish=False)
         print("Translated to English (S0rish):", translated_result)
         
-        while True:
-            translate_again = input("Do you want to translate again? (Y/N): ").upper()
-            if translate_again in ('Y', 'N'):
-                TRNSLTR()
-            else:
-                print("Invalid input. Please enter 'Y' or 'N'.")
-        
-        if translate_again == 'N':
-            break
-
+        translate_to_english_again = input("Do you want to translate again? (Y/N): ").upper()
+        if translate_to_english_again == 'Y':
+            translate_menu()
+        elif translate_to_english_again == 'N':
+            mainmenu()  # Go to the main menu
+        else:
+            print("Invalid Input. Please enter 'Y' or 'N'")
+            translate_to_english_again()
     
 scrape_proxies()    
 
