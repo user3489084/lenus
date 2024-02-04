@@ -1,0 +1,6 @@
+colorama==0.4.6
+discord==2.3.2
+discord.py==2.3.2
+multidict==6.0.4
+requests==2.31.0
+urllib3==2.1.0
